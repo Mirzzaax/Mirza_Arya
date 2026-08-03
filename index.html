@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kasir — Coffe Fineshyt</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <div class="navbar-logo">☕</div>
+      <span class="navbar-title">Coffe Fineshyt</span>
+    </div>
+    <ul class="navbar-nav">
+      <li><a href="index.html" class="nav-link active">🏠 Kasir</a></li>
+      <li><a href="status.html" class="nav-link">📋 Status Transaksi</a></li>
+      <li><a href="struk.html" class="nav-link">🧾 Struk</a></li>
+    </ul>
+    <div class="navbar-right">
+      <span class="navbar-user">👤 Mirza — Kasir</span>
+      <a href="login.html" class="btn-logout">Logout</a>
+    </div>
+  </nav>
+
+  <!-- ===== MAIN ===== -->
+  <div class="page-wrapper">
+
+    <!-- Stats Bar -->
+    <div class="stats-bar">
+      <div class="stat-card">
+        <div class="stat-label">Transaksi Hari Ini</div>
+        <div class="stat-value">42</div>
+        <div class="stat-note">↑ 8 dari kemarin</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Pendapatan Hari Ini</div>
+        <div class="stat-value">Rp 2,4 Jt</div>
+        <div class="stat-note">↑ 12% dari kemarin</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Item Terjual</div>
+        <div class="stat-value">118</div>
+        <div class="stat-note">↑ 5 dari kemarin</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Rata-rata Pesanan</div>
+        <div class="stat-value">Rp 57 Rb</div>
+        <div class="stat-note">Stabil</div>
+      </div>
+    </div>
+
+    <!-- Kasir Layout -->
+    <div class="kasir-layout">
+
+      <!-- LEFT: Produk -->
+      <div>
+        <div class="page-header">
+          <h1 class="page-title">Menu Hari Ini</h1>
+          <p class="page-subtitle">Pilih produk dan tambahkan ke keranjang pesanan</p>
+        </div>
+
+        <!-- Category Tabs -->
+        <div class="category-tabs">
+          <button class="tab-btn active">☕ Semua</button>
+          <button class="tab-btn">🍵 Kopi</button>
+          <button class="tab-btn">🥤 Non-Kopi</button>
+          <button class="tab-btn">🥐 Makanan</button>
+          <button class="tab-btn">🧁 Dessert</button>
+        </div>
+
+        <!-- Product Grid -->
+        <div class="product-grid">
+
+          <!-- Produk 1 -->
+          <div class="product-card">
+            <div class="product-badge">Terlaris</div>
+            <div class="product-img-placeholder">☕</div>
+            <div class="product-body">
+              <div class="product-name">Espresso Classico</div>
+              <div class="product-desc">Single origin Arabika, bold & rich</div>
+              <div class="product-price">Rp 28.000</div>
+              <a href="checkout.html" class="btn-add">+ Tambah</a>
+            </div>
+          </div>
+
+          <!-- Produk 2 -->
+          <div class="product-card">
+            <div class="product-img-placeholder">🥛</div>
+            <div class="product-body">
+              <div class="product-name">Latte Susu Segar</div>
+              <div class="product-desc">Espresso + susu segar full cream</div>
+              <div class="product-price">Rp 35.000</div>
+              <a href="checkout.html" class="btn-add">+ Tambah</a>
+            </div>
+          </div>
+
+          <!-- Produk 3 -->
+          <div class="product-card">
+            <div class="product-badge">Baru</div>
+            <div class="product-img-placeholder">🫧</div>
+            <div class="product-body">
+              <div class="product-name">Cappuccino Foam</div>
+              <div class="product-desc">Espresso + microfoam lembut</div>
+              <div class="product-price">Rp 38.000</div>
+              <a href="checkout.html" class="btn-add">+ Tambah</a>
+            </div>
+          </div>
+
+          <!-- Produk 4 -->
+          <div class="product-card">
+            <div class="product-img-placeholder">🍫</div>
+            <div class="product-body">
+              <div class="product-name">Mocha Delight</div>
+              <div class="product-desc">Espresso + coklat Belgia + susu</div>
+              <div class="product-price">Rp 42.000</div>
+              <a href="checkout.html" class="btn-add">+ Tambah</a>
+            </div>
+          </div>
+
+          <!-- Produk 5 -->
+          <div class="product-card">
+            <div class="product-img-placeholder">🍵</div>
+            <div class="product-body">
+              <div class="product-name">Matcha Latte</div>
+              <div class="product-desc">Matcha premium Jepang + susu oat</div>
+              <div class="product-price">Rp 40.000</div>
+              <a href="checkout.html" class="btn-add">+ Tambah</a>
+            </div>
+          </div>
+
+          <!-- Produk 6 -->
+          <div class="product-card">
+            <div class="product-img-placeholder">🧋</div>
+            <div class="product-body">
+              <div class="product-name">Brown Sugar Boba</div>
+              <div class="product-desc">Teh susu + boba kenyal + gula aren</div>
+              <div class="product-price">Rp 38.000</div>
+              <a href="checkout.html" class="btn-add">+ Tambah</a>
+            </div>
+          </div>
+
+          <!-- Produk 7 -->
+          <div class="product-card">
+            <div class="product-img-placeholder">🥐</div>
+            <div class="product-body">
+              <div class="product-name">Croissant Butter</div>
+              <div class="product-desc">Croissant renyah mentega premium</div>
+              <div class="product-price">Rp 25.000</div>
+              <a href="checkout.html" class="btn-add">+ Tambah</a>
+            </div>
+          </div>
+
+          <!-- Produk 8 -->
+          <div class="product-card">
+            <div class="product-img-placeholder">🍰</div>
+            <div class="product-body">
+              <div class="product-name">Cheesecake Klasik</div>
+              <div class="product-desc">New York style, creamy & smooth</div>
+              <div class="product-price">Rp 45.000</div>
+              <a href="checkout.html" class="btn-add">+ Tambah</a>
+            </div>
+          </div>
+
+          <!-- Produk 9 -->
+          <div class="product-card">
+            <div class="product-img-placeholder">🍌</div>
+            <div class="product-body">
+              <div class="product-name">Banana Bread</div>
+              <div class="product-desc">Homemade, lembut & moist</div>
+              <div class="product-price">Rp 22.000</div>
+              <a href="checkout.html" class="btn-add">+ Tambah</a>
+            </div>
+          </div>
+
+          <!-- Produk 10 - Out of Stock -->
+          <div class="product-card out-of-stock">
+            <div class="product-img-placeholder">🍊</div>
+            <div class="product-body">
+              <div class="product-name">Orange Juice Segar</div>
+              <div class="product-desc">Perasan langsung, tanpa gula</div>
+              <div class="product-price">Rp 30.000</div>
+              <button class="btn-add" disabled style="opacity:.5;cursor:not-allowed;">Habis</button>
+            </div>
+          </div>
+
+          <!-- Produk 11 -->
+          <div class="product-card">
+            <div class="product-img-placeholder">🧁</div>
+            <div class="product-body">
+              <div class="product-name">Muffin Blueberry</div>
+              <div class="product-desc">Penuh blueberry segar pilihan</div>
+              <div class="product-price">Rp 28.000</div>
+              <a href="checkout.html" class="btn-add">+ Tambah</a>
+            </div>
+          </div>
+
+          <!-- Produk 12 -->
+          <div class="product-card">
+            <div class="product-badge">Promo</div>
+            <div class="product-img-placeholder">🫖</div>
+            <div class="product-body">
+              <div class="product-name">Teh Tarik Special</div>
+              <div class="product-desc">Teh kental + susu kental manis</div>
+              <div class="product-price">Rp 20.000</div>
+              <a href="checkout.html" class="btn-add">+ Tambah</a>
+            </div>
+          </div>
+
+        </div><!-- / product-grid -->
+      </div><!-- / left column -->
+
+      <!-- RIGHT: Cart Panel -->
+      <div class="cart-panel">
+        <div class="cart-header">
+          <h3>🛒 Pesanan</h3>
+          <span class="cart-count">3</span>
+        </div>
+
+        <div class="cart-body">
+          <!-- Cart Item 1 -->
+          <div class="cart-item">
+            <span class="cart-item-emoji">☕</span>
+            <div class="cart-item-info">
+              <div class="cart-item-name">Espresso Classico</div>
+              <div class="cart-item-price">Rp 28.000 / pcs</div>
+            </div>
+            <div class="cart-qty">
+              <button class="qty-btn">−</button>
+              <span class="qty-num">2</span>
+              <button class="qty-btn">+</button>
+            </div>
+          </div>
+
+          <!-- Cart Item 2 -->
+          <div class="cart-item">
+            <span class="cart-item-emoji">🍰</span>
+            <div class="cart-item-info">
+              <div class="cart-item-name">Cheesecake Klasik</div>
+              <div class="cart-item-price">Rp 45.000 / pcs</div>
+            </div>
+            <div class="cart-qty">
+              <button class="qty-btn">−</button>
+              <span class="qty-num">1</span>
+              <button class="qty-btn">+</button>
+            </div>
+          </div>
+
+          <!-- Cart Item 3 -->
+          <div class="cart-item">
+            <span class="cart-item-emoji">🥛</span>
+            <div class="cart-item-info">
+              <div class="cart-item-name">Latte Susu Segar</div>
+              <div class="cart-item-price">Rp 35.000 / pcs</div>
+            </div>
+            <div class="cart-qty">
+              <button class="qty-btn">−</button>
+              <span class="qty-num">1</span>
+              <button class="qty-btn">+</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Summary -->
+        <div class="cart-summary">
+          <div class="summary-row">
+            <span>Subtotal (4 item)</span>
+            <span>Rp 136.000</span>
+          </div>
+          <div class="summary-row">
+            <span>Diskon</span>
+            <span style="color:var(--success);">− Rp 0</span>
+          </div>
+          <div class="summary-row">
+            <span>Pajak (10%)</span>
+            <span>Rp 13.600</span>
+          </div>
+          <div class="summary-row total">
+            <span>TOTAL</span>
+            <span>Rp 149.600</span>
+          </div>
+        </div>
+
+        <!-- Payment Method -->
+        <div class="cart-payment">
+          <div class="payment-label">Metode Bayar</div>
+          <div class="payment-methods">
+            <div class="pay-method">
+              <span class="method-icon">💵</span>
+              Tunai
+            </div>
+            <div class="pay-method selected">
+              <span class="method-icon">💳</span>
+              QRIS
+            </div>
+            <div class="pay-method">
+              <span class="method-icon">🏦</span>
+              Transfer
+            </div>
+            <div class="pay-method">
+              <span class="method-icon">📱</span>
+              E-Wallet
+            </div>
+          </div>
+          <a href="checkout.html" class="btn-checkout">💳 Lanjut Pembayaran</a>
+        </div>
+      </div>
+      <!-- / cart panel -->
+
+    </div><!-- / kasir-layout -->
+  </div><!-- / page-wrapper -->
+
+</body>
+</html>

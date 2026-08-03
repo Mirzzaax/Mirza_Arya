@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Proses Bayar — Coffe Fineshyt</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <div class="navbar-logo">☕</div>
+      <span class="navbar-title">Coffe Fineshyt</span>
+    </div>
+    <ul class="navbar-nav">
+      <li><a href="index.html" class="nav-link">🏠 Kasir</a></li>
+      <li><a href="status.html" class="nav-link">📋 Status Transaksi</a></li>
+      <li><a href="struk.html" class="nav-link">🧾 Struk</a></li>
+    </ul>
+    <div class="navbar-right">
+      <span class="navbar-user">👤 Mirza — Kasir</span>
+      <a href="login.html" class="btn-logout">Logout</a>
+    </div>
+  </nav>
+
+  <!-- ===== MAIN ===== -->
+  <div class="page-wrapper">
+    <div class="page-header">
+      <h1 class="page-title">💳 Proses Pembayaran</h1>
+      <p class="page-subtitle">Pilih metode pembayaran dan konfirmasi transaksi</p>
+    </div>
+
+    <div class="checkout-layout">
+
+      <!-- LEFT: Payment Form -->
+      <div>
+
+        <!-- Metode Pembayaran -->
+        <div class="checkout-card">
+          <div class="checkout-card-header">💳 Metode Pembayaran</div>
+          <div class="checkout-card-body">
+            <div class="method-grid">
+              <div class="method-card">
+                <span class="method-icon-lg">💵</span>
+                <span class="method-name">Tunai</span>
+              </div>
+              <div class="method-card selected">
+                <span class="method-icon-lg">📲</span>
+                <span class="method-name">QRIS</span>
+              </div>
+              <div class="method-card">
+                <span class="method-icon-lg">🏦</span>
+                <span class="method-name">Transfer Bank</span>
+              </div>
+              <div class="method-card">
+                <span class="method-icon-lg">🟢</span>
+                <span class="method-name">GoPay</span>
+              </div>
+              <div class="method-card">
+                <span class="method-icon-lg">🔵</span>
+                <span class="method-name">OVO</span>
+              </div>
+              <div class="method-card">
+                <span class="method-icon-lg">🔴</span>
+                <span class="method-name">Dana</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Input Uang Tunai -->
+        <div class="checkout-card">
+          <div class="checkout-card-header">💵 Jumlah Uang Tunai Diterima</div>
+          <div class="checkout-card-body">
+            <div class="form-group">
+              <label class="form-label">Masukkan nominal uang dari pelanggan</label>
+              <input
+                class="input-cash"
+                type="number"
+                value="200000"
+                min="0"
+                step="1000"
+                placeholder="0"
+              />
+            </div>
+
+            <!-- Quick Amount Buttons -->
+            <div style="display:flex; gap:.6rem; flex-wrap:wrap; margin-top:.75rem;">
+              <button class="tab-btn" style="font-size:.82rem;">Rp 50.000</button>
+              <button class="tab-btn" style="font-size:.82rem;">Rp 100.000</button>
+              <button class="tab-btn" style="font-size:.82rem;">Rp 150.000</button>
+              <button class="tab-btn" style="font-size:.82rem;">Rp 200.000</button>
+              <button class="tab-btn" style="font-size:.82rem;">Rp 500.000</button>
+            </div>
+
+            <!-- Kembalian -->
+            <div style="
+              background: rgba(58,125,68,.08);
+              border: 2px solid rgba(58,125,68,.25);
+              border-radius: var(--radius-sm);
+              padding: 1rem 1.25rem;
+              margin-top: 1.25rem;
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+            ">
+              <div>
+                <div style="font-size:.8rem; font-weight:700; color:var(--success); text-transform:uppercase; letter-spacing:.8px;">Kembalian</div>
+                <div style="font-family:'Playfair Display',serif; font-size:1.5rem; font-weight:700; color:var(--brown-dark);">Rp 50.400</div>
+              </div>
+              <span style="font-size:2rem;">💰</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Catatan Pesanan -->
+        <div class="checkout-card">
+          <div class="checkout-card-header">📝 Catatan Pesanan</div>
+          <div class="checkout-card-body">
+            <div class="form-group">
+              <label class="form-label" for="nama-pelanggan">Nama Pelanggan (opsional)</label>
+              <input class="form-control" type="text" id="nama-pelanggan" placeholder="Contoh: Budi" />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="catatan">Catatan Khusus</label>
+              <textarea
+                class="form-control"
+                id="catatan"
+                rows="3"
+                placeholder="Contoh: Less sugar, extra shot, dll."
+                style="resize:vertical;"
+              ></textarea>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- / left -->
+
+      <!-- RIGHT: Order Summary -->
+      <div class="order-summary-card">
+        <div class="order-summary-header">🛒 Ringkasan Pesanan</div>
+        <div class="order-summary-body">
+          <div class="order-line">
+            <span class="item-n">Espresso Classico ×2</span>
+            <span>Rp 56.000</span>
+          </div>
+          <div class="order-line">
+            <span class="item-n">Cheesecake Klasik ×1</span>
+            <span>Rp 45.000</span>
+          </div>
+          <div class="order-line">
+            <span class="item-n">Latte Susu Segar ×1</span>
+            <span>Rp 35.000</span>
+          </div>
+        </div>
+
+        <div class="order-totals">
+          <div class="order-total-row">
+            <span>Subtotal (4 item)</span>
+            <span>Rp 136.000</span>
+          </div>
+          <div class="order-total-row">
+            <span>Diskon</span>
+            <span style="color:var(--success);">Rp 0</span>
+          </div>
+          <div class="order-total-row">
+            <span>Pajak (10%)</span>
+            <span>Rp 13.600</span>
+          </div>
+          <div class="order-total-row grand-total">
+            <span>TOTAL</span>
+            <span>Rp 149.600</span>
+          </div>
+        </div>
+
+        <a href="struk.html" class="btn-confirm">✅ Konfirmasi Pembayaran</a>
+
+        <div style="padding: 0 1.5rem 1.25rem; text-align:center;">
+          <a href="index.html" class="btn-secondary">← Kembali ke Kasir</a>
+        </div>
+      </div>
+
+    </div><!-- / checkout-layout -->
+  </div><!-- / page-wrapper -->
+
+</body>
+</html>
