@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Kas Kelas</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen pb-12">
+
+    <!-- NAVBAR RESPONSIVE -->
+    <nav class="bg-slate-800 border-b border-slate-700 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center space-x-3">
+                    <div class="p-2 bg-indigo-500/10 text-indigo-400 rounded-xl">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <span class="font-bold text-lg text-white">Kas Kelas Digital</span>
+                </div>
+                
+                <!-- Profile / Logout -->
+                <div class="flex items-center space-x-4">
+                    <div class="hidden sm:block text-right">
+                        <div id="navUserName" class="text-sm font-semibold text-white">Loading...</div>
+                        <div id="navUserEmail" class="text-xs text-slate-400">Loading...</div>
+                    </div>
+                    <button onclick="logout()" class="px-3.5 py-2 bg-red-500/10 hover:bg-red-500/20 text-red-400 text-xs font-semibold rounded-xl border border-red-500/20 transition">
+                        Keluar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- KONTEN UTAMA -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-6 space-y-6">
+
+        <!-- GRID BANNER AKUN & SALDO -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            
+            <!-- Card Profil Siswa -->
+            <div class="bg-slate-800 border border-slate-700 rounded-2xl p-6 flex flex-col justify-between shadow-lg">
+                <div>
+                    <span class="text-xs font-semibold text-indigo-400 uppercase tracking-wider">Profil Siswa</span>
+                    <h2 id="studentName" class="text-2xl font-bold text-white mt-1">...</h2>
+                    <p id="studentEmail" class="text-sm text-slate-400 mt-0.5">...</p>
+                </div>
+                <div class="mt-4 pt-4 border-t border-slate-700/50 flex items-center justify-between text-xs text-slate-400">
+                    <span>Role Akun</span>
+                    <span id="studentRole" class="px-2.5 py-1 bg-slate-700 text-slate-200 rounded-full font-medium">Siswa</span>
+                </div>
+            </div>
+
+            <!-- Card Sisa Saldo Deposit -->
+            <!-- Card Sisa Saldo Deposit -->
+	    <div class="bg-gradient-to-br from-indigo-900/60 to-slate-800 border border-indigo-500/30 rounded-2xl p-6 flex flex-col justify-between shadow-lg">
+    	    	<div>
+        		<span class="text-xs font-semibold text-indigo-300 uppercase tracking-wider">Sisa Saldo Deposit Kamu</span>
+        		<div class="text-3xl sm:text-4xl font-extrabold text-white mt-2" id="studentBalance">
+            			Rp 0
+        		</div>
+        		<p class="text-xs text-slate-300 mt-2">Saldo ini otomatis memotong iuran kas harianmu.</p>
+    		</div>
+    		<div class="mt-4 pt-4 border-t border-indigo-500/20 flex items-center justify-between">
+        		<button onclick="openDepositModal()" class="w-full py-2 px-4 bg-indigo-600 hover:bg-indigo-500 text-white font-semibold rounded-xl text-xs transition shadow-md">
+            			+ Top Up / Deposit Saldo
+        		</button>
+    		</div>
+		</div>
+
+            <!-- Card Status Pembayaran Singkat -->
+            <div class="bg-slate-800 border border-slate-700 rounded-2xl p-6 flex flex-col justify-between shadow-lg">
+                <div>
+                    <span class="text-xs font-semibold text-emerald-400 uppercase tracking-wider">Keterangan Warna Matriks</span>
+                    <div class="grid grid-cols-2 gap-2 mt-3 text-xs">
+                        <div class="flex items-center space-x-2">
+                            <span class="w-3 h-3 bg-emerald-500 rounded-full inline-block"></span>
+                            <span class="text-slate-300">Lunas / Paid</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <span class="w-3 h-3 bg-red-500 rounded-full inline-block"></span>
+                            <span class="text-slate-300">Belum Bayar</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <span class="w-3 h-3 bg-slate-600 rounded-full inline-block"></span>
+                            <span class="text-slate-300">Libur / Free Kas</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <span class="w-3 h-3 bg-indigo-500 rounded-full inline-block"></span>
+                            <span class="text-slate-300">Hari Ini</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-4 text-xs text-slate-400 bg-slate-900/50 p-3 rounded-xl border border-slate-700/50">
+                    💡 **Tips:** Untuk menambah saldo, kamu bisa setor tunai ke bendahara via Discord Bot.
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION MATRIKS KAS KELAS (30 HARI) -->
+        <div class="bg-slate-800 border border-slate-700 rounded-2xl p-6 shadow-lg">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-4 gap-3">
+                <div>
+                    <h2 class="text-lg font-bold text-white">Matriks Pembayaran Kas Kelas</h2>
+                    <p class="text-xs text-slate-400">Status pembayaran kas harian kamu dalam periode saat ini</p>
+                </div>
+            
+                <!-- FILTER BULAN & TAHUN -->
+                <div class="flex items-center space-x-2">
+                    <select id="selectMonth" onchange="onMonthYearChange()" class="bg-slate-800 border border-slate-700 text-xs text-white rounded-xl p-2.5 focus:outline-none focus:border-indigo-500">
+                        <option value="1">Januari</option>
+                        <option value="2">Februari</option>
+                        <option value="3">Maret</option>
+                        <option value="4">April</option>
+                        <option value="5">Mei</option>
+                        <option value="6">Juni</option>
+                        <option value="7">Juli</option>
+                        <option value="8">Agustus</option>
+                        <option value="9">September</option>
+                        <option value="10">Oktober</option>
+                        <option value="11">November</option>
+                        <option value="12">Desember</option>
+                    </select>
+                    <select id="selectYear" onchange="onMonthYearChange()" class="bg-slate-800 border border-slate-700 text-xs text-white rounded-xl p-2.5 focus:outline-none focus:border-indigo-500">
+                        <option value="2026">2026</option>
+                        <option value="2027">2027</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Grid Responsive Matriks (Mobile: 5 kolom, Tablet: 7 kolom, Desktop: 10 kolom) -->
+            <div id="kasMatrixGrid" class="grid grid-cols-5 sm:grid-cols-7 lg:grid-cols-10 gap-2.5 sm:gap-3">
+                <div class="col-span-full text-center py-8 text-slate-500">Memuat data matriks kas...</div>
+            </div>
+        </div>
+
+        <!-- SECTION RIWAYAT TRANSAKSI DEPOSIT -->
+        <div class="bg-slate-800 border border-slate-700 rounded-2xl p-6 shadow-lg">
+            <h3 class="text-lg font-bold text-white mb-4">Riwayat Deposit Masuk</h3>
+            
+            <!-- Table Container Responsive Horizontal Scroll -->
+            <div class="overflow-x-auto">
+                <table class="w-full text-left text-xs sm:text-sm text-slate-300">
+                    <thead class="bg-slate-900 text-slate-400 uppercase text-xs border-b border-slate-700">
+                        <tr>
+                            <th class="py-3 px-4">Tanggal</th>
+                            <th class="py-3 px-4">Metode</th>
+                            <th class="py-3 px-4">Nominal</th>
+                            <th class="py-3 px-4">Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="transactionTable" class="divide-y divide-slate-700/50">
+                        <tr>
+                            <td colspan="4" class="py-4 text-center text-slate-500">Memuat riwayat transaksi...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </main>
+
+    <script src="/js/auth.js"></script>
+    <script src="/js/dashboard.js"></script>
+<!-- MODAL DEPOSIT WEB -->
+<div id="depositModal" class="hidden fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+    <div class="bg-slate-800 border border-slate-700 rounded-2xl w-full max-w-md p-6 shadow-2xl relative space-y-4">
+        <div class="flex justify-between items-center border-b border-slate-700 pb-3">
+            <h3 class="text-lg font-bold text-white">Deposit Saldo Kas</h3>
+            <button onclick="closeDepositModal()" class="text-slate-400 hover:text-white font-bold text-xl">&times;</button>
+        </div>
+
+        <form id="webDepositForm" class="space-y-4">
+            <div>
+                <label class="block text-xs font-semibold text-slate-300 mb-1">Nominal Deposit (Rp)</label>
+                <input type="number" id="depositAmount" required min="1000" placeholder="Contoh: 20000"
+                    class="w-full px-4 py-2.5 bg-slate-900 border border-slate-700 rounded-xl text-white focus:outline-none focus:border-indigo-500 text-sm">
+            </div>
+
+            <div>
+                <label class="block text-xs font-semibold text-slate-300 mb-1">Metode Pembayaran</label>
+                <select id="depositType" class="w-full px-4 py-2.5 bg-slate-900 border border-slate-700 rounded-xl text-white focus:outline-none focus:border-indigo-500 text-sm">
+                    <option value="qris">QRIS / E-Wallet</option>
+                    <option value="manual">Transfer Bank / Manual</option>
+                </select>
+            </div>
+
+            <div class="p-3 bg-slate-900/60 rounded-xl border border-slate-700/50 text-xs text-slate-400 space-y-1">
+                <p>📌 **Info Pembayaran:**</p>
+                <p>Silakan transfer/scan sesuai nominal ke QRIS/Rekening Bendahara, lalu klik konfirmasi deposit di bawah.</p>
+            </div>
+
+            <div class="flex space-x-3 pt-2">
+                <button type="button" onclick="closeDepositModal()" class="w-1/2 py-2.5 bg-slate-700 hover:bg-slate-600 text-slate-200 font-semibold rounded-xl text-xs transition">Batal</button>
+                <button type="submit" id="btnSubmitDeposit" class="w-1/2 py-2.5 bg-indigo-600 hover:bg-indigo-500 text-white font-semibold rounded-xl text-xs transition shadow-lg">Kirim Deposit</button>
+            </div>
+        </form>
+    </div>
+</div>
+<!-- TERMINAL LIVE LOG TRANSPARANSI (REALTIME) -->
+<div class="bg-slate-900 border border-slate-700 rounded-2xl p-5 shadow-xl mt-6">
+    <div class="flex items-center justify-between border-b border-slate-800 pb-3 mb-3">
+        <div class="flex items-center space-x-2">
+            <span class="relative flex h-3 w-3">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
+            </span>
+            <h3 class="font-bold text-sm text-white tracking-wide">LIVE TRANSPARENCY LOGS</h3>
+        </div>
+        <span class="text-[10px] bg-slate-800 text-slate-400 px-2.5 py-1 rounded-full font-mono border border-slate-700">Real-time Stream</span>
+    </div>
+
+    <!-- BOX CONTAINING LOG MESSAGES -->
+    <div id="liveLogContainer" class="space-y-2 max-h-64 overflow-y-auto font-mono text-xs p-3 bg-black/50 rounded-xl border border-slate-800/80">
+        <div class="text-slate-500 italic text-center py-4">Memuat riwayat log...</div>
+    </div>
+</div>
+<!-- CUSTOM CONFIRMATION MODAL UI -->
+<div id="confirmModal" class="hidden fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center p-4 transition-all">
+    <div class="bg-slate-800 border border-slate-700 rounded-2xl max-w-sm w-full p-6 text-center space-y-4 shadow-2xl transform scale-100">
+        <!-- ICON WARNING / QUESTION -->
+        <div class="w-12 h-12 bg-indigo-500/10 border border-indigo-500/30 text-indigo-400 rounded-full flex items-center justify-center mx-auto text-xl">
+            💳
+        </div>
+        
+        <div class="space-y-1">
+            <h3 class="font-bold text-base text-white">Konfirmasi Pembayaran Kas</h3>
+            <p id="confirmModalText" class="text-xs text-slate-400">Apakah kamu yakin ingin membayar kas untuk tanggal ini?</p>
+        </div>
+
+        <!-- ACTION BUTTONS -->
+        <div class="flex space-x-2 pt-2">
+            <button id="btnCancelConfirm" class="w-1/2 py-2.5 bg-slate-700 hover:bg-slate-600 text-slate-300 rounded-xl text-xs font-semibold transition">
+                Batal
+            </button>
+            <button id="btnActionConfirm" class="w-1/2 py-2.5 bg-indigo-600 hover:bg-indigo-500 text-white rounded-xl text-xs font-semibold transition shadow-lg shadow-indigo-600/30">
+                Ya, Bayar
+            </button>
+        </div>
+    </div>
+</div>
+</body>
+</html>
